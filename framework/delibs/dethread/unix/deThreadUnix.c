@@ -28,10 +28,6 @@
 #include "deMemory.h"
 #include "deInt32.h"
 
-#if !defined(_XOPEN_SOURCE) || (_XOPEN_SOURCE < 500)
-#	error "You are using too old posix API!"
-#endif
-
 #include <unistd.h>
 #include <pthread.h>
 #include <sched.h>

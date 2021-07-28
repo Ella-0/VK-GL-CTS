@@ -26,6 +26,9 @@
 #include "deDynamicLibrary.hpp"
 
 #if defined(DEQP_EGL_DIRECT_LINK)
+#	if !defined(DEQP_SUPPORT_X11)
+#		define EGL_NO_X11
+#	endif
 #	include <EGL/egl.h>
 #endif
 

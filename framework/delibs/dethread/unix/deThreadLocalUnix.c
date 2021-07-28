@@ -25,10 +25,6 @@
 
 #if (DE_OS == DE_OS_UNIX || DE_OS == DE_OS_OSX || DE_OS == DE_OS_ANDROID || DE_OS == DE_OS_SYMBIAN || DE_OS == DE_OS_IOS || DE_OS == DE_OS_QNX)
 
-#if !defined(_XOPEN_SOURCE) || (_XOPEN_SOURCE < 500)
-#	error You are using too old posix API!
-#endif
-
 #include <pthread.h>
 
 DE_STATIC_ASSERT(sizeof(pthread_key_t) <= sizeof(deThreadLocal));

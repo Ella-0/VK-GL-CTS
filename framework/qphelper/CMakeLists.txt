@@ -37,10 +37,9 @@ endif ()
 add_library(qphelper STATIC ${QPHELPER_SRCS})
 target_link_libraries(qphelper ${QPHELPER_LIBS})
 
-# freebsd needs libexecinfo for backtrace symbols
-if (${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD")
-	target_link_libraries(qphelper execinfo)
-endif ()
+# Non-glibc systems need an external backtrace library
+find_package(Backtrace REQUIRED)
+target_link_libraries(qphelper ${Backtrace_LIBRARIES})
 
 # Should qpInfo.c attempt to include qpReleaseInfo.inl
 set(USE_RELEASE_INFO_FILE OFF)
